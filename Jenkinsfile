@@ -40,6 +40,7 @@ spec:
                     checkout scm
                     sh ''' 
                     echo "INSTALL DEPENDENCY"
+                    /usr/local/bin/python -m pip install --upgrade pip
                     pip install wheel
                     pip install setuptools
                     pip install twine
