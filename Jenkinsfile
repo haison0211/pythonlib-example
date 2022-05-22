@@ -39,6 +39,7 @@ spec:
                 stage('Package a python library') {
                     checkout scm
                     sh ''' 
+                    python3 -m venv venv
                     echo "INSTALL DEPENDENCY"
                     /usr/local/bin/python -m pip install --upgrade pip
                     pip install wheel
