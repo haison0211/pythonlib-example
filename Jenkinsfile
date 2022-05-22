@@ -5,7 +5,7 @@ kind: Pod
 spec:
   containers:
     - name: python
-      image: 'python:alpine3.15'
+      image: 'python:3.11.0b1-bullseye'
       command:
         - sleep
       args:
