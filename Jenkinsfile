@@ -10,30 +10,10 @@ spec:
         - sleep
       args:
         - 99d
-    - name: docker
-      image: docker:19.03.1
       volumeMounts:
         - name: cache
           mountPath: /usr/local/lib/python3.11/site-packages
-      command: ['sleep', '99d']
-      env:
-        - name: DOCKER_HOST
-          value: tcp://localhost:2375
-    - name: docker-daemon
-      image: docker:19.03.1-dind
-      env:
-        - name: DOCKER_TLS_CERTDIR
-          value: ""
-      securityContext:
-        privileged: true
-      volumeMounts:
-        - name: private-registries
-          mountPath: /etc/docker/daemon.json
-          subPath: daemon.json
   volumes:
-    - name: private-registries
-      configMap:
-        name: docker-agent
     - name: cache
       persistentVolumeClaim:
         claimName: python-cache
@@ -51,7 +31,7 @@ spec:
                     echo "BUILD LIBRARY"
                     python setup.py bdist_wheel
                     ls dist
-                    twine upload --repository https://artifact.example.com/repository/ASAP-Python-2.7-Hosted/ boto3-1.9.76-py2.py3-none-any.whl
+                    twine upload --repository http://ec2-16-163-188-199.ap-east-1.compute.amazonaws.com/repository/Pypi-repo/ mypythonlib-0.1.0-py3-none-any.whl
                     '''
                 }  
             } 
