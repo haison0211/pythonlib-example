@@ -36,14 +36,13 @@ spec:
                     twine upload --repository http://ec2-16-163-188-199.ap-east-1.compute.amazonaws.com/repository/Pypi-repo/ mypythonlib-0.1.0-py3-none-any.whl
                     '''
                 } 
-            } 
-            container('python')
                 stage('Publish to artifactory') {
-                    sh '''
+                    sh'''
                     ls dist
                     mv .pypirc ~
-                    twine upload --repository http://ec2-16-163-188-199.ap-east-1.compute.amazonaws.com/repository/Pypi-repo/ mypythonlib-0.1.0-py3-none-any.whl
+          
                     '''
                 }
+            } 
     }
 }
