@@ -51,17 +51,9 @@ spec:
                     echo "BUILD LIBRARY"
                     python setup.py bdist_wheel
                     ls dist
+                    twine upload --repository https://artifact.example.com/repository/ASAP-Python-2.7-Hosted/ boto3-1.9.76-py2.py3-none-any.whl
                     '''
-                    
                 }  
             } 
-            container('docker')   {
-                stage('Containerization') {
-                    docker_image = docker.build("sonatype-nexus-nexus-repository-manager-docker-5000.nexus:5000/java-netty-app:v1")
-                    withDockerRegistry(url: 'http://sonatype-nexus-nexus-repository-manager-docker-5000.nexus:5000', credentialsId: 'docker-registry-credential') {
-                          docker_image.push()
-                }  
-            }
-            }
     }
 }
