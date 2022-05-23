@@ -39,7 +39,7 @@ spec:
                     ls dist
                     mv .pypirc ~
                     chmod 600 ~/.pypirc
-                    twine 
+                    python3 -m twine upload -r pypi 
                     '''
                 }
             } 
