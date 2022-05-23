@@ -13,8 +13,8 @@ spec:
     - name: docker
       image: docker:19.03.1
       volumeMounts:
-          - mountPath: /usr/local/lib/python3.11/site-packages
-            name: python-cache
+        - name: python-cache
+          mountPath: /usr/local/lib/python3.11/site-packages
       command: ['sleep', '99d']
       env:
         - name: DOCKER_HOST
@@ -34,9 +34,9 @@ spec:
     - name: private-registries
       configMap:
         name: docker-agent
-    - name: python-cache
-          persistentVolumeClaim:
-            claimName: python-cache
+    - name: cache
+      persistentVolumeClaim:
+        claimName: python-cache
 '''
 ) {
 
