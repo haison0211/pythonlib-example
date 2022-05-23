@@ -13,7 +13,7 @@ spec:
     - name: docker
       image: docker:19.03.1
       volumeMounts:
-        - name: python-cache
+        - name: cache
           mountPath: /usr/local/lib/python3.11/site-packages
       command: ['sleep', '99d']
       env:
