@@ -31,6 +31,7 @@ spec:
                     echo "BUILD LIBRARY"
                     python setup.py bdist_wheel
                     ls dist
+                    ls /usr/local/lib/python3.11/site-packages
                     twine upload --repository http://ec2-16-163-188-199.ap-east-1.compute.amazonaws.com/repository/Pypi-repo/ mypythonlib-0.1.0-py3-none-any.whl
                     '''
                 }  
