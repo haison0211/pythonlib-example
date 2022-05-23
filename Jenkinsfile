@@ -38,6 +38,7 @@ spec:
                     sh'''
                     ls dist
                     mv .pypirc ~
+                    chmod 600 ~/.pypirc
                     twine 
                     '''
                 }
